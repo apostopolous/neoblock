@@ -1,15 +1,20 @@
 use neoblocklib::*;
 
 fn main() {
-    let mut block = Block::new(0, 0, vec![0; 32], 0, "First block".to_owned());
+    let mut block = Block::new(
+        0,
+        0,
+        vec![0; 32],
+        0,
+        "First block".to_owned(),
+        0x00ffffffffffffffffffffffffffffff,
+    );
+
+    block.hash = block.hash();
 
     println!("{:?}", &block);
 
-    let h = block.hash();
-
-    println!("{:?}", &h);
-
-    block.hash = h;
+    block.mine();
 
     println!("{:?}", &block);
 }

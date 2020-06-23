@@ -1,9 +1,17 @@
 [package]
 name = "neoblock"
 version = "0.1.0"
-authors = ["byron-src <byrondenham@protonmail.com>"]
+authors = ["Byron Denham <byrondenham@protonmail.com>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "neoblocklib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "neoblockchain"
+path = "src/main.rs"
 
 [dependencies]
+crypto-hash = { git = "https://github.com/malept/crypto-hash" }
+hex  = "0.4.2"
